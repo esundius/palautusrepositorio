@@ -1,0 +1,23 @@
+[project]
+name = "poetry-web"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Erik Sundius",email = "43874589+esundius@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = "^3.12"
+dependencies = [
+    "sqlalchemy (==1.4.54)",
+    "fastapi (>=0.121.1,<0.122.0)"
+]
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.0,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
