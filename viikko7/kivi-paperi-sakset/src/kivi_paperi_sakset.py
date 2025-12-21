@@ -1,7 +1,7 @@
 from tuomari import Tuomari
 
 
-WIN_TARGET = 5
+WIN_TARGET = 3
 
 class KiviPaperiSakset:
     def pelaa(self):

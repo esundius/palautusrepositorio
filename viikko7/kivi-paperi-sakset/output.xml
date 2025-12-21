@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4 (Python 3.14.0 on darwin)" generated="2025-12-21T19:52:06.532414" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4 (Python 3.14.0 on darwin)" generated="2025-12-21T20:15:20.011920" rpa="false" schemaversion="5">
 <suite id="s1" name="Web App" source="/Users/esundius/studier/ohtu/palautusrepositorio/viikko7/kivi-paperi-sakset/tests/robot/web_app.robot">
 <kw name="Setup Suite" type="SETUP">
 <kw name="Start App Server">
 <kw name="Get Environment Variables" owner="OperatingSystem">
-<msg time="2025-12-21T19:52:06.621630" level="INFO">${env} = {'INS_DESKTOPICON': 'NULL', 'TERM_PROGRAM': 'vscode', 'INS_NOUPDATE': 'none', 'SHELL': '/bin/zsh', 'TERM': 'xterm-256color', 'INS_InstallFeature': 'none', 'TMPDIR': '/var/folders/6z/xm_2k0mj5b5_1lrzh5...</msg>
+<msg time="2025-12-21T20:15:20.099291" level="INFO">${env} = {'INS_DESKTOPICON': 'NULL', 'TERM_PROGRAM': 'vscode', 'INS_NOUPDATE': 'none', 'SHELL': '/bin/zsh', 'TERM': 'xterm-256color', 'INS_InstallFeature': 'none', 'TMPDIR': '/var/folders/6z/xm_2k0mj5b5_1lrzh5...</msg>
 <var>${env}</var>
 <doc>Returns currently available environment variables as a dictionary.</doc>
-<status status="PASS" start="2025-12-21T19:52:06.621502" elapsed="0.000149"/>
+<status status="PASS" start="2025-12-21T20:15:20.099189" elapsed="0.000118"/>
 </kw>
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${env}</arg>
 <arg>PYTHONPATH</arg>
 <arg>/Users/esundius/studier/ohtu/palautusrepositorio/viikko7/kivi-paperi-sakset/tests/robot/../../src</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2025-12-21T19:52:06.621712" elapsed="0.000110"/>
+<status status="PASS" start="2025-12-21T20:15:20.099354" elapsed="0.000099"/>
 </kw>
 <kw name="Run Process" owner="Process">
-<msg time="2025-12-21T19:52:06.622262" level="INFO">Starting process:
+<msg time="2025-12-21T20:15:20.099897" level="INFO">Starting process:
 poetry run flask --app src.web_app run --port 5001</msg>
-<msg time="2025-12-21T19:52:06.623783" level="INFO">Waiting for process to complete.</msg>
-<msg time="2025-12-21T19:52:07.325148" level="INFO">Process completed.</msg>
+<msg time="2025-12-21T20:15:20.101415" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-12-21T20:15:20.804735" level="INFO">Process completed.</msg>
 <arg>poetry</arg>
 <arg>run</arg>
 <arg>flask</arg>
@@ -34,13 +34,13 @@ poetry run flask --app src.web_app run --port 5001</msg>
 <arg>stdout=${TEMPDIR}/flask-server.log</arg>
 <arg>stderr=STDOUT</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2025-12-21T19:52:06.621863" elapsed="0.703453"/>
+<status status="PASS" start="2025-12-21T20:15:20.099493" elapsed="0.705383"/>
 </kw>
 <kw name="Wait For Server">
 <kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
 <kw name="Ping App">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.344471" level="INFO">${_} = 
+<msg time="2025-12-21T20:15:20.824065" level="INFO">${_} = 
 &lt;!DOCTYPE html&gt;
 &lt;html lang="fi"&gt;
 &lt;head&gt;
@@ -52,86 +52,86 @@ poetry run flask --app src.web_app run --port 5001</msg>
 <var>${_}</var>
 <arg>__import__('urllib.request').request.urlopen('${BASE_URL}', timeout=2).read()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.326279" elapsed="0.018215"/>
+<status status="PASS" start="2025-12-21T20:15:20.805763" elapsed="0.018325"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:07.326205" elapsed="0.018341"/>
+<status status="PASS" start="2025-12-21T20:15:20.805689" elapsed="0.018448"/>
 </kw>
 <arg>15s</arg>
 <arg>1s</arg>
 <arg>Ping App</arg>
 <doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.325813" elapsed="0.018756"/>
+<status status="PASS" start="2025-12-21T20:15:20.805322" elapsed="0.018837"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:07.325614" elapsed="0.018976"/>
+<status status="PASS" start="2025-12-21T20:15:20.805144" elapsed="0.019037"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:06.621202" elapsed="0.723404"/>
+<status status="PASS" start="2025-12-21T20:15:20.098934" elapsed="0.725263"/>
 </kw>
 <kw name="Ensure Chrome Available">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.344892" level="INFO">${paths} = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser']</msg>
+<msg time="2025-12-21T20:15:20.824471" level="INFO">${paths} = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser']</msg>
 <var>${paths}</var>
 <arg>/Applications/Google Chrome.app/Contents/MacOS/Google Chrome</arg>
 <arg>/usr/bin/google-chrome</arg>
 <arg>/usr/bin/chromium</arg>
 <arg>/usr/bin/chromium-browser</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.344776" elapsed="0.000127"/>
+<status status="PASS" start="2025-12-21T20:15:20.824361" elapsed="0.000121"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="File Should Exist" owner="OperatingSystem">
-<msg time="2025-12-21T19:52:07.345243" level="INFO" html="true">File '&lt;a href="file:///Applications/Google Chrome.app/Contents/MacOS/Google Chrome"&gt;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&lt;/a&gt;' exists.</msg>
+<msg time="2025-12-21T20:15:20.824809" level="INFO" html="true">File '&lt;a href="file:///Applications/Google Chrome.app/Contents/MacOS/Google Chrome"&gt;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&lt;/a&gt;' exists.</msg>
 <arg>${p}</arg>
 <doc>Fails unless the given ``path`` points to an existing file.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345160" elapsed="0.000100"/>
+<status status="PASS" start="2025-12-21T20:15:20.824725" elapsed="0.000102"/>
 </kw>
-<msg time="2025-12-21T19:52:07.345288" level="INFO">${exists} = True</msg>
+<msg time="2025-12-21T20:15:20.824856" level="INFO">${exists} = True</msg>
 <var>${exists}</var>
 <arg>File Should Exist</arg>
 <arg>${p}</arg>
 <doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345067" elapsed="0.000229"/>
+<status status="PASS" start="2025-12-21T20:15:20.824633" elapsed="0.000231"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.345681" level="INFO">${CHROME_BIN} = /Applications/Google Chrome.app/Contents/MacOS/Google Chrome</msg>
+<msg time="2025-12-21T20:15:20.825259" level="INFO">${CHROME_BIN} = /Applications/Google Chrome.app/Contents/MacOS/Google Chrome</msg>
 <arg>${CHROME_BIN}</arg>
 <arg>${p}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345427" elapsed="0.000269"/>
+<status status="PASS" start="2025-12-21T20:15:20.825002" elapsed="0.000275"/>
 </kw>
 <arg>${exists}</arg>
 <arg>Set Suite Variable</arg>
 <arg>${CHROME_BIN}</arg>
 <arg>${p}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345331" elapsed="0.000384"/>
+<status status="PASS" start="2025-12-21T20:15:20.824900" elapsed="0.000397"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.345888" level="INFO">Returning from the enclosing user keyword.</msg>
+<msg time="2025-12-21T20:15:20.825472" level="INFO">Returning from the enclosing user keyword.</msg>
 <doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345836" elapsed="0.000089"/>
+<status status="PASS" start="2025-12-21T20:15:20.825423" elapsed="0.000087"/>
 </kw>
 <arg>${exists}</arg>
 <arg>Return From Keyword</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.345749" elapsed="0.000195"/>
+<status status="PASS" start="2025-12-21T20:15:20.825333" elapsed="0.000198"/>
 </kw>
 <var name="${p}">/Applications/Google Chrome.app/Contents/MacOS/Google Chrome</var>
-<status status="PASS" start="2025-12-21T19:52:07.345018" elapsed="0.000939"/>
+<status status="PASS" start="2025-12-21T20:15:20.824587" elapsed="0.000959"/>
 </iter>
 <var>${p}</var>
 <value>@{paths}</value>
-<status status="PASS" start="2025-12-21T19:52:07.344941" elapsed="0.001039"/>
+<status status="PASS" start="2025-12-21T20:15:20.824515" elapsed="0.001053"/>
 </for>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${status}</var>
 <arg>Run And Return Stdout</arg>
 <arg>which google-chrome</arg>
 <doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-12-21T19:52:07.346022" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-12-21T20:15:20.825613" elapsed="0.000010"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${status}</arg>
@@ -139,7 +139,7 @@ poetry run flask --app src.web_app run --port 5001</msg>
 <arg>Run And Return Stdout</arg>
 <arg>which google-chrome</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-12-21T19:52:07.346060" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-12-21T20:15:20.825658" elapsed="0.000008"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${status}</arg>
@@ -147,123 +147,123 @@ poetry run flask --app src.web_app run --port 5001</msg>
 <arg>${CHROME_BIN}</arg>
 <arg>${out.strip()}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-12-21T19:52:07.346098" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-12-21T20:15:20.825699" elapsed="0.000007"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${status}</arg>
 <arg>Return From Keyword</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-12-21T19:52:07.346129" elapsed="0.000006"/>
+<status status="NOT RUN" start="2025-12-21T20:15:20.825734" elapsed="0.000007"/>
 </kw>
 <kw name="Skip" owner="BuiltIn">
 <arg>Chrome/Chromium not found; install Google Chrome to run browser tests.</arg>
 <doc>Skips the rest of the current test.</doc>
-<status status="NOT RUN" start="2025-12-21T19:52:07.346157" elapsed="0.000008"/>
+<status status="NOT RUN" start="2025-12-21T20:15:20.825766" elapsed="0.000008"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:07.344702" elapsed="0.001480"/>
+<status status="PASS" start="2025-12-21T20:15:20.824290" elapsed="0.001504"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:06.621086" elapsed="0.725110"/>
+<status status="PASS" start="2025-12-21T20:15:20.098828" elapsed="0.726983"/>
 </kw>
-<test id="s1-t1" name="AI Mode Records A Round" line="81">
+<test id="s1-t1" name="AI Mode Records A Round" line="87">
 <kw name="Go To Home">
 <kw name="Open Headless Chrome">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.369589" level="INFO">====== WebDriver manager ======</msg>
-<msg time="2025-12-21T19:52:07.516626" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:07.539373" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:07.559317" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
-<msg time="2025-12-21T19:52:07.559473" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
+<msg time="2025-12-21T20:15:20.848288" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-12-21T20:15:21.007102" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:21.030375" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:21.050639" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
+<msg time="2025-12-21T20:15:21.050802" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
 <var>${chromedriver}</var>
 <arg>__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()</arg>
 <arg>modules=webdriver_manager.chrome</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.346568" elapsed="0.212919"/>
+<status status="PASS" start="2025-12-21T20:15:20.826172" elapsed="0.224644"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.559936" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10c2adbe0&gt;</msg>
+<msg time="2025-12-21T20:15:21.051249" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x109491be0&gt;</msg>
 <var>${options}</var>
 <arg>__import__('selenium.webdriver', fromlist=['ChromeOptions']).ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.559628" elapsed="0.000320"/>
+<status status="PASS" start="2025-12-21T20:15:21.050962" elapsed="0.000298"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--headless\=new</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.559993" elapsed="0.000111"/>
+<status status="PASS" start="2025-12-21T20:15:21.051301" elapsed="0.000102"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.560140" elapsed="0.000076"/>
+<status status="PASS" start="2025-12-21T20:15:21.051438" elapsed="0.000075"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.560248" elapsed="0.000070"/>
+<status status="PASS" start="2025-12-21T20:15:21.051545" elapsed="0.000071"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.560349" elapsed="0.000069"/>
+<status status="PASS" start="2025-12-21T20:15:21.051647" elapsed="0.000070"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:07.560640" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x10c2aecf0&gt;</msg>
+<msg time="2025-12-21T20:15:21.051934" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x109492cf0&gt;</msg>
 <var>${service}</var>
 <arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(executable_path='${chromedriver}')</arg>
 <arg>modules=selenium.webdriver.chrome.service</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.560452" elapsed="0.000199"/>
+<status status="PASS" start="2025-12-21T20:15:21.051750" elapsed="0.000195"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:07.560799" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-12-21T20:15:21.052078" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-12-21T19:52:07.560701" elapsed="0.550504"/>
+<status status="PASS" start="2025-12-21T20:15:21.051992" elapsed="0.515381"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:07.346509" elapsed="0.764848"/>
+<status status="PASS" start="2025-12-21T20:15:20.826113" elapsed="0.741413"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:08.111794" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
+<msg time="2025-12-21T20:15:21.567825" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.111638" elapsed="0.055462"/>
+<status status="PASS" start="2025-12-21T20:15:21.567677" elapsed="0.036133"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:07.346429" elapsed="0.820787"/>
+<status status="PASS" start="2025-12-21T20:15:20.826024" elapsed="0.777895"/>
 </kw>
 <kw name="Select Mode">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:08.168125" level="INFO">Selecting options from selection list 'name:mode' by value ai.</msg>
+<msg time="2025-12-21T20:15:21.604743" level="INFO">Selecting options from selection list 'name:mode' by value ai.</msg>
 <arg>name:mode</arg>
 <arg>${mode}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.167818" elapsed="0.038369"/>
+<status status="PASS" start="2025-12-21T20:15:21.604502" elapsed="0.036952"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Pelitilanne</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.206310" elapsed="0.005831"/>
+<status status="PASS" start="2025-12-21T20:15:21.641577" elapsed="0.005467"/>
 </kw>
 <arg>ai</arg>
-<status status="PASS" start="2025-12-21T19:52:08.167522" elapsed="0.044679"/>
+<status status="PASS" start="2025-12-21T20:15:21.604240" elapsed="0.042865"/>
 </kw>
 <kw name="Play Round">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:08.212881" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
+<msg time="2025-12-21T20:15:21.647508" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
 <arg>name:first_move</arg>
 <arg>${first}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.212715" elapsed="0.054214"/>
+<status status="PASS" start="2025-12-21T20:15:21.647402" elapsed="0.055176"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>'${second}' != 'None'</arg>
@@ -271,460 +271,372 @@ poetry run flask --app src.web_app run --port 5001</msg>
 <arg>name:second_move</arg>
 <arg>${second}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.267038" elapsed="0.000241"/>
+<status status="PASS" start="2025-12-21T20:15:21.702707" elapsed="0.000304"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:08.267402" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
+<msg time="2025-12-21T20:15:21.703136" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
 <arg>Kirjaa siirrot</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.267330" elapsed="0.022091"/>
+<status status="PASS" start="2025-12-21T20:15:21.703064" elapsed="0.025171"/>
 </kw>
-<arg>k</arg>
-<status status="PASS" start="2025-12-21T19:52:08.212435" elapsed="0.077038"/>
-</kw>
-<kw name="Expect Score Contains">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${text}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.289718" elapsed="0.002065"/>
-</kw>
-<arg>Pelitilanne</arg>
-<status status="PASS" start="2025-12-21T19:52:08.289590" elapsed="0.002223"/>
-</kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.291915" elapsed="0.068244"/>
-</kw>
-<status status="PASS" start="2025-12-21T19:52:07.346236" elapsed="1.014026"/>
-</test>
-<test id="s1-t2" name="Pvp Reaches Five Wins And Disables Moves" line="87">
-<kw name="Go To Home">
-<kw name="Open Headless Chrome">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:08.361275" level="INFO">====== WebDriver manager ======</msg>
-<msg time="2025-12-21T19:52:08.461575" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:08.486618" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:08.506176" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
-<msg time="2025-12-21T19:52:08.506330" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
-<var>${chromedriver}</var>
-<arg>__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()</arg>
-<arg>modules=webdriver_manager.chrome</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.360971" elapsed="0.145373"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:08.506705" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10c475590&gt;</msg>
-<var>${options}</var>
-<arg>__import__('selenium.webdriver', fromlist=['ChromeOptions']).ChromeOptions()</arg>
-<arg>modules=selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.506453" elapsed="0.000264"/>
-</kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--headless\=new</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.506760" elapsed="0.000108"/>
-</kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--no-sandbox</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.506918" elapsed="0.000077"/>
-</kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--disable-dev-shm-usage</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.507029" elapsed="0.000072"/>
-</kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--disable-gpu</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.507133" elapsed="0.000069"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:08.507404" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x10c475e50&gt;</msg>
-<var>${service}</var>
-<arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(executable_path='${chromedriver}')</arg>
-<arg>modules=selenium.webdriver.chrome.service</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.507236" elapsed="0.000178"/>
-</kw>
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:08.507530" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<arg>Chrome</arg>
-<arg>options=${options}</arg>
-<arg>service=${service}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-12-21T19:52:08.507458" elapsed="0.515744"/>
-</kw>
-<status status="PASS" start="2025-12-21T19:52:08.360859" elapsed="0.662499"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.023655" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
-<arg>${BASE_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.023509" elapsed="0.056203"/>
-</kw>
-<status status="PASS" start="2025-12-21T19:52:08.360678" elapsed="0.719144"/>
-</kw>
-<kw name="Select Mode">
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.080604" level="INFO">Selecting options from selection list 'name:mode' by value pvp.</msg>
-<arg>name:mode</arg>
-<arg>${mode}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.080464" elapsed="0.058038"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Pelitilanne</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.138634" elapsed="0.005250"/>
-</kw>
-<arg>pvp</arg>
-<status status="PASS" start="2025-12-21T19:52:09.080203" elapsed="0.063814"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Play Round">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.148347" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
-<arg>name:first_move</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.148128" elapsed="0.059185"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.207791" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.207704" elapsed="0.019897"/>
-</kw>
-<arg>'${second}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.207427" elapsed="0.020271"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.228139" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
-<arg>Kirjaa siirrot</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.227821" elapsed="0.028285"/>
-</kw>
-<arg>k</arg>
-<arg>s</arg>
-<status status="PASS" start="2025-12-21T19:52:09.147911" elapsed="0.108261"/>
-</kw>
-<var name="${i}">0</var>
-<status status="PASS" start="2025-12-21T19:52:09.144726" elapsed="0.111466"/>
-</iter>
-<iter>
-<kw name="Play Round">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.256645" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
-<arg>name:first_move</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.256552" elapsed="0.052593"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.309516" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.309434" elapsed="0.018265"/>
-</kw>
-<arg>'${second}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.309235" elapsed="0.018547"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.328180" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
-<arg>Kirjaa siirrot</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.327870" elapsed="0.024207"/>
-</kw>
-<arg>k</arg>
-<arg>s</arg>
-<status status="PASS" start="2025-12-21T19:52:09.256365" elapsed="0.095774"/>
-</kw>
-<var name="${i}">1</var>
-<status status="PASS" start="2025-12-21T19:52:09.256278" elapsed="0.095886"/>
-</iter>
-<iter>
-<kw name="Play Round">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.352617" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
-<arg>name:first_move</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.352485" elapsed="0.022329"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.375178" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.375100" elapsed="0.018856"/>
-</kw>
-<arg>'${second}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.374904" elapsed="0.019101"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.394148" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
-<arg>Kirjaa siirrot</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.394064" elapsed="0.023584"/>
-</kw>
-<arg>k</arg>
-<arg>s</arg>
-<status status="PASS" start="2025-12-21T19:52:09.352321" elapsed="0.065385"/>
-</kw>
-<var name="${i}">2</var>
-<status status="PASS" start="2025-12-21T19:52:09.352240" elapsed="0.065486"/>
-</iter>
-<iter>
-<kw name="Play Round">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.418168" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
-<arg>name:first_move</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.418061" elapsed="0.023067"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.441541" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.441458" elapsed="0.018987"/>
-</kw>
-<arg>'${second}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.441248" elapsed="0.019246"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.460641" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
-<arg>Kirjaa siirrot</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.460556" elapsed="0.016069"/>
-</kw>
-<arg>k</arg>
-<arg>s</arg>
-<status status="PASS" start="2025-12-21T19:52:09.417883" elapsed="0.058798"/>
-</kw>
-<var name="${i}">3</var>
-<status status="PASS" start="2025-12-21T19:52:09.417800" elapsed="0.058902"/>
-</iter>
-<iter>
-<kw name="Play Round">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.477027" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
-<arg>name:first_move</arg>
-<arg>${first}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.476950" elapsed="0.030556"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.507921" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.507831" elapsed="0.019754"/>
-</kw>
-<arg>'${second}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>name:second_move</arg>
-<arg>${second}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.507607" elapsed="0.020077"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.528049" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
-<arg>Kirjaa siirrot</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.527789" elapsed="0.018056"/>
-</kw>
-<arg>k</arg>
-<arg>s</arg>
-<status status="PASS" start="2025-12-21T19:52:09.476834" elapsed="0.069068"/>
-</kw>
-<var name="${i}">4</var>
-<status status="PASS" start="2025-12-21T19:52:09.476765" elapsed="0.069156"/>
-</iter>
-<var>${i}</var>
-<value>5</value>
-<status status="PASS" start="2025-12-21T19:52:09.144196" elapsed="0.401752"/>
-</for>
-<kw name="Expect Score Contains">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${text}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.546245" elapsed="0.215238"/>
-</kw>
-<arg>5 - 0</arg>
-<status status="PASS" start="2025-12-21T19:52:09.546083" elapsed="0.215523"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>voitti</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.761798" elapsed="0.006831"/>
-</kw>
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<kw name="Check Move Button Disabled">
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:09.769773" level="INFO">Executing JavaScript:
-return document.querySelector("form[action='/move'] button[type='submit']").disabled;
-Without any arguments.</msg>
-<msg time="2025-12-21T19:52:09.772306" level="INFO">${disabled} = True</msg>
-<var>${disabled}</var>
-<arg>return document.querySelector("form[action='/move'] button[type='submit']").disabled;</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.769417" elapsed="0.002911"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${disabled}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.772414" elapsed="0.000170"/>
-</kw>
-<status status="PASS" start="2025-12-21T19:52:09.769222" elapsed="0.003405"/>
-</kw>
-<arg>5s</arg>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-21T20:15:22.229187" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
-<arg>Check Move Button Disabled</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.768797" elapsed="0.003859"/>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-21T20:15:21.728344" elapsed="0.501036"/>
+</kw>
+<arg>k</arg>
+<status status="PASS" start="2025-12-21T20:15:21.647248" elapsed="0.582315"/>
+</kw>
+<kw name="Expect Score Contains">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${text}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-21T20:15:22.230455" elapsed="0.007765"/>
+</kw>
+<arg>Pelitilanne</arg>
+<status status="PASS" start="2025-12-21T20:15:22.229952" elapsed="0.008426"/>
 </kw>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.772817" elapsed="0.074536"/>
+<status status="PASS" start="2025-12-21T20:15:22.238803" elapsed="0.073447"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:08.360457" elapsed="1.486981"/>
+<status status="PASS" start="2025-12-21T20:15:20.825847" elapsed="1.486509"/>
 </test>
-<test id="s1-t3" name="Pvp Requires Second Move" line="97">
+<test id="s1-t2" name="Pvp Reaches Three Wins And Disables Moves" line="93">
 <kw name="Go To Home">
 <kw name="Open Headless Chrome">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:09.848361" level="INFO">====== WebDriver manager ======</msg>
-<msg time="2025-12-21T19:52:10.008293" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:10.030332" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-12-21T19:52:10.050797" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
-<msg time="2025-12-21T19:52:10.050960" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
+<msg time="2025-12-21T20:15:22.313560" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-12-21T20:15:22.483988" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:22.509066" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:22.529276" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
+<msg time="2025-12-21T20:15:22.529431" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
 <var>${chromedriver}</var>
 <arg>__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()</arg>
 <arg>modules=webdriver_manager.chrome</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:09.848037" elapsed="0.202937"/>
+<status status="PASS" start="2025-12-21T20:15:22.313137" elapsed="0.216307"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:10.051469" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10c158b90&gt;</msg>
+<msg time="2025-12-21T20:15:22.529827" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x109659590&gt;</msg>
 <var>${options}</var>
 <arg>__import__('selenium.webdriver', fromlist=['ChromeOptions']).ChromeOptions()</arg>
 <arg>modules=selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.051121" elapsed="0.000358"/>
+<status status="PASS" start="2025-12-21T20:15:22.529553" elapsed="0.000285"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--headless\=new</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.051523" elapsed="0.000103"/>
+<status status="PASS" start="2025-12-21T20:15:22.529898" elapsed="0.000115"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.051660" elapsed="0.000072"/>
+<status status="PASS" start="2025-12-21T20:15:22.530053" elapsed="0.000085"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-dev-shm-usage</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.051769" elapsed="0.000078"/>
+<status status="PASS" start="2025-12-21T20:15:22.530174" elapsed="0.000080"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--disable-gpu</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.051890" elapsed="0.000088"/>
+<status status="PASS" start="2025-12-21T20:15:22.530290" elapsed="0.000079"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-12-21T19:52:10.052194" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x10c475450&gt;</msg>
+<msg time="2025-12-21T20:15:22.530580" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x109659e50&gt;</msg>
 <var>${service}</var>
 <arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(executable_path='${chromedriver}')</arg>
 <arg>modules=selenium.webdriver.chrome.service</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.052011" elapsed="0.000192"/>
+<status status="PASS" start="2025-12-21T20:15:22.530403" elapsed="0.000188"/>
 </kw>
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:10.052375" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-12-21T20:15:22.530717" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <arg>options=${options}</arg>
 <arg>service=${service}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.052279" elapsed="0.514462"/>
+<status status="PASS" start="2025-12-21T20:15:22.530638" elapsed="0.521177"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:09.847940" elapsed="0.718946"/>
+<status status="PASS" start="2025-12-21T20:15:22.312974" elapsed="0.738984"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:10.567191" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
+<msg time="2025-12-21T20:15:23.052265" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.567045" elapsed="0.033411"/>
+<status status="PASS" start="2025-12-21T20:15:23.052117" elapsed="0.062041"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:09.847813" elapsed="0.752710"/>
+<status status="PASS" start="2025-12-21T20:15:22.312803" elapsed="0.801468"/>
 </kw>
 <kw name="Select Mode">
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:10.601426" level="INFO">Selecting options from selection list 'name:mode' by value pvp.</msg>
+<msg time="2025-12-21T20:15:23.115269" level="INFO">Selecting options from selection list 'name:mode' by value pvp.</msg>
 <arg>name:mode</arg>
 <arg>${mode}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.601128" elapsed="0.042350"/>
+<status status="PASS" start="2025-12-21T20:15:23.114923" elapsed="0.042753"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Pelitilanne</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.643613" elapsed="0.006844"/>
+<status status="PASS" start="2025-12-21T20:15:23.157788" elapsed="0.005571"/>
 </kw>
 <arg>pvp</arg>
-<status status="PASS" start="2025-12-21T19:52:10.600709" elapsed="0.049808"/>
+<status status="PASS" start="2025-12-21T20:15:23.114552" elapsed="0.048866"/>
 </kw>
 <kw name="Play Round">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:10.650878" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
+<msg time="2025-12-21T20:15:23.163765" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
 <arg>name:first_move</arg>
 <arg>${first}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.650787" elapsed="0.057585"/>
+<status status="PASS" start="2025-12-21T20:15:23.163676" elapsed="0.055055"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:23.219199" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.219115" elapsed="0.020784"/>
+</kw>
+<arg>'${second}' != 'None'</arg>
+<arg>Input Text</arg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.218846" elapsed="0.021103"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:23.240111" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
+<arg>Kirjaa siirrot</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.240018" elapsed="0.021466"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-21T20:15:23.762650" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.261573" elapsed="0.501294"/>
+</kw>
+<arg>k</arg>
+<arg>s</arg>
+<status status="PASS" start="2025-12-21T20:15:23.163534" elapsed="0.599481"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>1 - 0</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.763329" elapsed="0.010620"/>
+</kw>
+<kw name="Play Round">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:23.774763" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
+<arg>name:first_move</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.774578" elapsed="0.029963"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:23.805119" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.804993" elapsed="0.021627"/>
+</kw>
+<arg>'${second}' != 'None'</arg>
+<arg>Input Text</arg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.804661" elapsed="0.022017"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:23.826841" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
+<arg>Kirjaa siirrot</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.826747" elapsed="0.016999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-21T20:15:24.345648" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-21T20:15:23.843834" elapsed="0.502067"/>
+</kw>
+<arg>k</arg>
+<arg>s</arg>
+<status status="PASS" start="2025-12-21T20:15:23.774252" elapsed="0.571878"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>2 - 0</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.346552" elapsed="0.013323"/>
+</kw>
+<kw name="Play Round">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:24.360835" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
+<arg>name:first_move</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.360629" elapsed="0.034755"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:24.395955" level="INFO">Typing text 's' into text field 'name:second_move'.</msg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.395837" elapsed="0.022340"/>
+</kw>
+<arg>'${second}' != 'None'</arg>
+<arg>Input Text</arg>
+<arg>name:second_move</arg>
+<arg>${second}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.395511" elapsed="0.022724"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:24.418433" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
+<arg>Kirjaa siirrot</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.418332" elapsed="0.017921"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-21T20:15:24.938267" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.436342" elapsed="0.502188"/>
+</kw>
+<arg>k</arg>
+<arg>s</arg>
+<status status="PASS" start="2025-12-21T20:15:24.360254" elapsed="0.578495"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>3 - 0</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.939187" elapsed="0.012750"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-12-21T20:15:24.952396" elapsed="0.079467"/>
+</kw>
+<status status="PASS" start="2025-12-21T20:15:22.312565" elapsed="2.719423"/>
+</test>
+<test id="s1-t3" name="Pvp Requires Second Move" line="103">
+<kw name="Go To Home">
+<kw name="Open Headless Chrome">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-21T20:15:25.033003" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-12-21T20:15:25.144921" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:25.166219" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-12-21T20:15:25.185159" level="INFO">Driver [/Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver] found in cache</msg>
+<msg time="2025-12-21T20:15:25.185321" level="INFO">${chromedriver} = /Users/esundius/.wdm/drivers/chromedriver/mac64/143.0.7499.169/chromedriver-mac-arm64/chromedriver</msg>
+<var>${chromedriver}</var>
+<arg>__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install()</arg>
+<arg>modules=webdriver_manager.chrome</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.032645" elapsed="0.152693"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-21T20:15:25.185789" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10933cb90&gt;</msg>
+<var>${options}</var>
+<arg>__import__('selenium.webdriver', fromlist=['ChromeOptions']).ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.185474" elapsed="0.000327"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless\=new</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.185842" elapsed="0.000101"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.185976" elapsed="0.000072"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.186083" elapsed="0.000067"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.186180" elapsed="0.000067"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-21T20:15:25.186438" level="INFO">${service} = &lt;selenium.webdriver.chrome.service.Service object at 0x109659450&gt;</msg>
+<var>${service}</var>
+<arg>__import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(executable_path='${chromedriver}')</arg>
+<arg>modules=selenium.webdriver.chrome.service</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.186279" elapsed="0.000169"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:25.186570" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<arg>service=${service}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.186493" elapsed="0.522455"/>
+</kw>
+<status status="PASS" start="2025-12-21T20:15:25.032538" elapsed="0.676539"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:25.709340" level="INFO">Opening url 'http://127.0.0.1:5001'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.709208" elapsed="0.032932"/>
+</kw>
+<status status="PASS" start="2025-12-21T20:15:25.032391" elapsed="0.709815"/>
+</kw>
+<kw name="Select Mode">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:25.742931" level="INFO">Selecting options from selection list 'name:mode' by value pvp.</msg>
+<arg>name:mode</arg>
+<arg>${mode}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.742674" elapsed="0.036170"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Pelitilanne</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.778971" elapsed="0.006961"/>
+</kw>
+<arg>pvp</arg>
+<status status="PASS" start="2025-12-21T20:15:25.742478" elapsed="0.043513"/>
+</kw>
+<kw name="Play Round">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-21T20:15:25.786351" level="INFO">Typing text 'k' into text field 'name:first_move'.</msg>
+<arg>name:first_move</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.786257" elapsed="0.062626"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>'${second}' != 'None'</arg>
@@ -732,45 +644,51 @@ Without any arguments.</msg>
 <arg>name:second_move</arg>
 <arg>${second}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.708483" elapsed="0.000246"/>
+<status status="PASS" start="2025-12-21T20:15:25.848999" elapsed="0.000261"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-21T19:52:10.708876" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
+<msg time="2025-12-21T20:15:25.849398" level="INFO">Clicking button 'Kirjaa siirrot'.</msg>
 <arg>Kirjaa siirrot</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.708793" elapsed="0.022488"/>
+<status status="PASS" start="2025-12-21T20:15:25.849322" elapsed="0.026811"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-21T20:15:26.377687" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-21T20:15:25.876320" elapsed="0.501631"/>
 </kw>
 <arg>k</arg>
-<status status="PASS" start="2025-12-21T19:52:10.650641" elapsed="0.080695"/>
+<status status="PASS" start="2025-12-21T20:15:25.786115" elapsed="0.592065"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Toisen pelaajan siirto puuttuu</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.731436" elapsed="0.214308"/>
+<status status="PASS" start="2025-12-21T20:15:26.378600" elapsed="0.013037"/>
 </kw>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-12-21T19:52:10.946032" elapsed="0.077401"/>
+<status status="PASS" start="2025-12-21T20:15:26.392114" elapsed="0.079780"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:09.847615" elapsed="1.175924"/>
+<status status="PASS" start="2025-12-21T20:15:25.032176" elapsed="1.439828"/>
 </test>
 <kw name="Stop App Server" type="TEARDOWN">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Terminate Process" owner="Process">
-<msg time="2025-12-21T19:52:11.024430" level="INFO">Gracefully terminating process.</msg>
-<msg time="2025-12-21T19:52:11.024505" level="INFO">Process completed.</msg>
+<msg time="2025-12-21T20:15:26.472947" level="INFO">Gracefully terminating process.</msg>
+<msg time="2025-12-21T20:15:26.473026" level="INFO">Process completed.</msg>
 <arg>server</arg>
 <doc>Stops the process gracefully or forcefully.</doc>
-<status status="PASS" start="2025-12-21T19:52:11.024309" elapsed="0.000218"/>
+<status status="PASS" start="2025-12-21T20:15:26.472824" elapsed="0.000225"/>
 </kw>
 <arg>Terminate Process</arg>
 <arg>server</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-12-21T19:52:11.024110" elapsed="0.000451"/>
+<status status="PASS" start="2025-12-21T20:15:26.472630" elapsed="0.000451"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:11.023981" elapsed="0.000608"/>
+<status status="PASS" start="2025-12-21T20:15:26.472493" elapsed="0.000617"/>
 </kw>
-<status status="PASS" start="2025-12-21T19:52:06.533231" elapsed="4.491374"/>
+<status status="PASS" start="2025-12-21T20:15:20.012676" elapsed="6.460452"/>
 </suite>
 <statistics>
 <total>

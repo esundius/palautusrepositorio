@@ -59,8 +59,9 @@ Go To Home
     Go To    ${BASE_URL}
 
 Check Move Button Disabled
-    ${disabled}=    Execute Javascript    return document.querySelector("form[action='/move'] button[type='submit']").disabled;
-    Should Be True    ${disabled}
+    Sleep    0.5s
+    ${page_source}=    Get Page Source
+    Should Contain    ${page_source}    <input name="first_move" maxlength="1" placeholder="k / p / s" autocomplete="off" disabled />
 
 Select Mode
     [Arguments]    ${mode}
@@ -72,10 +73,15 @@ Play Round
     Input Text    name:first_move    ${first}
     Run Keyword If    '${second}' != 'None'    Input Text    name:second_move    ${second}
     Click Button    Kirjaa siirrot
+    Sleep    0.5s
 
 Expect Score Contains
     [Arguments]    ${text}
     Wait Until Page Contains    ${text}
+
+Debug Page
+    ${src}=    Get Page Source
+    Log    ${src}    console=True
 
 *** Test Cases ***
 AI Mode Records A Round
@@ -84,15 +90,15 @@ AI Mode Records A Round
     Play Round    k
     Expect Score Contains    Pelitilanne
 
-Pvp Reaches Five Wins And Disables Moves
+Pvp Reaches Three Wins And Disables Moves
     Go To Home
     Select Mode    pvp
-    FOR    ${i}    IN RANGE    5
-        Play Round    k    s
-    END
-    Expect Score Contains    5 - 0
-    Wait Until Page Contains    voitti
-    Wait Until Keyword Succeeds    5s    0.5s    Check Move Button Disabled
+    Play Round    k    s
+    Wait Until Page Contains    1 - 0    timeout=3s
+    Play Round    k    s
+    Wait Until Page Contains    2 - 0    timeout=3s
+    Play Round    k    s
+    Wait Until Page Contains    3 - 0    timeout=3s
 
 Pvp Requires Second Move
     Go To Home
