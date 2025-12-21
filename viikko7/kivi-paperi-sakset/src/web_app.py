@@ -4,6 +4,7 @@ from flask import Flask, render_template_string, request, redirect, url_for, ses
 from tuomari import Tuomari
 from tekoaly import Tekoaly
 from tekoaly_parannettu import TekoalyParannettu
+from kivi_paperi_sakset import WIN_TARGET
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-secret")
@@ -53,10 +54,33 @@ def _status_text(tuomari: Tuomari) -> str:
     return str(tuomari).replace("\n", "<br>")
 
 
+def _has_winner(tuomari: Tuomari) -> bool:
+    return tuomari.ekan_pisteet >= WIN_TARGET or tuomari.tokan_pisteet >= WIN_TARGET
+
+
+def _winner_text(tuomari: Tuomari) -> str | None:
+    if tuomari.ekan_pisteet >= WIN_TARGET:
+        return f"Ensimmäinen pelaaja voitti ({WIN_TARGET} voittoa)"
+    if tuomari.tokan_pisteet >= WIN_TARGET:
+        return f"Toinen pelaaja voitti ({WIN_TARGET} voittoa)"
+    return None
+
+
 def _render(error: str | None = None):
     game = _current_game()
     status = _status_text(game["tuomari"])
-    return render_template_string(TEMPLATE, game=game, status=status, error=error, mode_labels=MODE_LABELS)
+    finished = _has_winner(game["tuomari"])
+    winner = _winner_text(game["tuomari"])
+    return render_template_string(
+        TEMPLATE,
+        game=game,
+        status=status,
+        finished=finished,
+        winner=winner,
+        error=error,
+        mode_labels=MODE_LABELS,
+        win_target=WIN_TARGET,
+    )
 
 
 @app.route("/", methods=["GET"])
@@ -78,6 +102,9 @@ def move():
     game = _current_game()
     if not game.get("mode"):
         return _render("Valitse pelimuoto ensin.")
+
+    if _has_winner(game["tuomari"]):
+        return _render("Peli on jo päättynyt. Aloita uusi peli.")
 
     first = request.form.get("first_move", "").strip().lower()
     if first not in VALID_MOVES:
@@ -218,6 +245,7 @@ TEMPLATE = """
                 </div>
                 <div class="col" style="align-self: flex-end;">
                     <div class="muted">Nykyinen: {{ mode_labels.get(game.mode, 'ei valintaa') }}</div>
+                    <div class="muted">Peli päättyy kun jompikumpi saavuttaa {{ win_target }} voittoa.</div>
                 </div>
             </form>
         </section>
@@ -228,12 +256,12 @@ TEMPLATE = """
                 <div class="row">
                     <div class="col">
                         <label>Ensimmäisen pelaajan siirto</label>
-                        <input name="first_move" maxlength="1" placeholder="k / p / s" autocomplete="off" />
+                        <input name="first_move" maxlength="1" placeholder="k / p / s" autocomplete="off" {% if finished %}disabled{% endif %} />
                     </div>
                     {% if game.mode == 'pvp' %}
                     <div class="col">
                         <label>Toisen pelaajan siirto</label>
-                        <input name="second_move" maxlength="1" placeholder="k / p / s" autocomplete="off" />
+                        <input name="second_move" maxlength="1" placeholder="k / p / s" autocomplete="off" {% if finished %}disabled{% endif %} />
                     </div>
                     {% else %}
                     <div class="col">
@@ -243,7 +271,7 @@ TEMPLATE = """
                     {% endif %}
                 </div>
                 <div class="actions" style="margin-top: 12px;">
-                    <button type="submit">Kirjaa siirrot</button>
+                    <button type="submit" {% if finished %}disabled{% endif %}>Kirjaa siirrot</button>
                     <div class="muted">Peli päättyy virheelliseen syötteeseen (k/p/s).</div>
                 </div>
             </form>
@@ -251,6 +279,9 @@ TEMPLATE = """
 
         <section class="card">
             <div class="status">{{ status | safe }}</div>
+            {% if winner %}
+            <div class="muted">{{ winner }}</div>
+            {% endif %}
         </section>
 
         <section class="card">
