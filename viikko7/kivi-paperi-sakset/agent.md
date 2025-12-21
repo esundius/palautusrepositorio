@@ -14,7 +14,7 @@ En.
 
 ## Kuinka paljon jouduit antamaan agentille komentoja matkan varrella?
 
-Ei paljon, mutta robottitesteissä sillä oli hiukan hankaluuksia. Tosin ensin hankaluudet taisi johtua siitä, ettei ollut Chrome asennettu koneella...
+En paljon, mutta robottitesteissä sillä oli hiukan hankaluuksia. Tosin ensihankaluudet taisi johtua siitä, ettei ollut Chrome asennettu koneella...
 
 ## Kuinka hyvät agentit tekemät testit olivat?
 
@@ -30,6 +30,6 @@ En huomannut muutoksia aiemmissa moduleissa, se vaan lisäsi `web_app.py`-moduli
 
 ## Mitä uutta opit?
 
-Tjaa, kyllähän AI:lla voi tehdä nopeasti asioita, mutta kannattaa ehkä vain silloin, jos ei ole kiinnostunut lopputuloksesta. On ehkä kivempi tehdä hiukan enemmän itse.
+Tjaa, kyllähän AI:lla voi tehdä nopeasti asioita, mutta kannattaa ehkä vain silloin, jos ei ole kiinnostunut lopputuloksesta. On ehkä kivempi tehdä hiukan enemmän itse. Helposti voi syntyä myös turhaa koodia, olen huomannut.
 
-Minulla on sellainen pikku ongelma, että joskus ei oikein kiinnosta parantaa/korjata toisten koodia, jos pikku tarkastelun jälkeen näyttää siltä, että se ei ole ollenkaan sellaista, mitä itse kirjoittaisin. Tai, vielä pahempi, on lisätä uutta toiminnallisuutta roskaan. En haluaisi koskea siihen edes pihteillä. Lisäksi lannistun, jos täytyy tehdä jotain sille. AI-koodi voi olla hiukan tällaista. Mutta joskus myös muiden ihmisten. En varmaankaan sovi kovinkaan hyvin tekemeään töitä tiimeissä...
+Minulla on sellainen pikku ongelma, että joskus ei oikein kiinnosta parantaa/korjata toisten koodia, jos pikku tarkastelun jälkeen näyttää siltä, että se ei ole ollenkaan sellaista, mitä itse kirjoittaisin. Tai, vielä pahempi, on lisätä uutta toiminnallisuutta roskaan. En haluaisi koskea siihen edes pihteillä. Lisäksi lannistun helposti, jos kuitenkin *täytyy* tehdä jotain sille. AI-koodi voi olla hiukan tällaista. Mutta joskus myös muiden ihmisten. En varmaankaan sovi kovinkaan hyvin tekemeään töitä tiimeissä...
